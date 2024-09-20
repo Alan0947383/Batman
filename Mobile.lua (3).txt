@@ -1149,7 +1149,7 @@ local function main()
 			end
 		end})
 
-		context:Register("UNGROUP",{Name = "Ungroup", IconMap = Explorer.MiscIcons, Icon = "Ungroup", DisabledIcon = "Ungroup_Disabled", Shortcut = "Ctrl+U", OnClick = function()
+		[[context:Register("UNGROUP",{Name = "Ungroup", IconMap = Explorer.MiscIcons, Icon = "Ungroup", DisabledIcon = "Ungroup_Disabled", Shortcut = "Ctrl+U", OnClick = function()
 			local newSelection = {}
 			local count = 1
 			local isa = game.IsA
@@ -1184,7 +1184,7 @@ local function main()
 			if #newSelection > 0 then
 				Explorer.ViewNode(newSelection[1])
 			end
-		end})
+		end})]]
 
 		context:Register("SELECT_CHILDREN",{Name = "Select Children", IconMap = Explorer.MiscIcons, Icon = "SelectChildren", DisabledIcon = "SelectChildren_Disabled", OnClick = function()
 			local newSelection = {}
@@ -10608,10 +10608,10 @@ Main = (function()
 	
 	Main.Error = function(str)
 		if rconsoleprint then
-			rconsoleprint("DEX ERROR: "..tostring(str).."\n")
+			print("error")
 			wait(9e9)
 		else
-			error(str)
+			print("works")
 		end
 	end
 	
@@ -10649,7 +10649,7 @@ Main = (function()
 		for i,v in pairs(Main.ModuleList) do
 			local s,e = pcall(Main.LoadModule,v)
 			if not s then
-				Main.Error(("FAILED LOADING %s CAUSE %s"):format(v, e))
+				print("error again")
 			end
 		end
 		
