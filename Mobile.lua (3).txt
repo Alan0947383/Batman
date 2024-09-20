@@ -205,9 +205,9 @@ local function main()
 					
 					local mid = floor((left+right)/2)
 					if sorter(newNode,par[mid]) then
-						right = mid-1
+						print("fixing")
 					else
-						left = mid+1
+						print("fixing")
 					end
 				end
 			end
